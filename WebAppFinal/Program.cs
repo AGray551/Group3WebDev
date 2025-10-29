@@ -1,28 +1,33 @@
+using Microsoft.EntityFrameworkCore;
+using WebAppFinal.Models;
+using WebAppFinal.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddDbContext<DirtBikeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DirtBikeContext")));
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment()) {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+builder.Services.AddScoped<IDirtBikeRepository, DirtBikeRepository>();
+
+builder.Services.AddEndpointsApiExplorer();
+
+var app = builder.Build();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthorization();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<DirtBikeContext>();
+    context.Database.Migrate();
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
-
 app.UseAuthorization();
-
-app.MapStaticAssets();
-
-app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
-
+app.MapControllers();
 app.Run();
