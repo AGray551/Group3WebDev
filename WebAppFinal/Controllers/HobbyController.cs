@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebAppFinal.Models;
 using WebAppFinal.Repositories;
 
 namespace WebAppFinal.Controllers;
@@ -7,11 +8,13 @@ public class HobbyController : Controller
 {
     private readonly IDirtBikeRepository _dirtBikeRepository;
     private readonly IDistanceRunningRepository _distanceRunningRepository;
+    private readonly IVideoGameRepository _videoGameRepository;
 
-    public HobbyController(IDirtBikeRepository dirtBikeRepository, IDistanceRunningRepository distanceRunningRepository)
+    public HobbyController(IDirtBikeRepository dirtBikeRepository, IDistanceRunningRepository distanceRunningRepository, IVideoGameRepository videoGameRepository)
     {
         _dirtBikeRepository = dirtBikeRepository;
         _distanceRunningRepository = distanceRunningRepository;
+        _videoGameRepository = videoGameRepository;
     }
 
     public IActionResult Index()
@@ -61,5 +64,27 @@ public class HobbyController : Controller
         }
 
         return View(distanceRun);
+    }
+
+    public IActionResult VideoGames()
+    {
+        var videoGames = _videoGameRepository.GetAll();
+        return View(videoGames);
+    }
+
+    public IActionResult VideoGamesDetails(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var videoGames = _videoGameRepository.GetById(id.Value);
+        if (videoGames == null)
+        {
+            return NotFound();
+        }
+
+        return View(videoGames);
     }
 }

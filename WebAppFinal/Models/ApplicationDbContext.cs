@@ -8,6 +8,7 @@ public class ApplicationDbContext : DbContext {
 
     public DbSet<DirtBike> DirtBikes { get; set; }
     public DbSet<DistanceRunning> DistanceRunnings { get; set; }
+    public DbSet<DistanceRunning> VideoGames { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -23,6 +24,11 @@ public class ApplicationDbContext : DbContext {
             new DistanceRunning { DistanceRunningId = 3, Date = new DateTime(2025, 10, 22), Distance = 10.0, Time = 88, MaxHeartRate = 178 },
             new DistanceRunning { DistanceRunningId = 4, Date = new DateTime(2025, 10, 25), Distance = 6.8, Time = 58, MaxHeartRate = 168 },
             new DistanceRunning { DistanceRunningId = 5, Date = new DateTime(2025, 10, 28), Distance = 12.0, Time = 105, MaxHeartRate = 180 }
+        );
+
+        modelBuilder.Entity<VideoGame>().HasData(
+            new VideoGame { VideoGameId = 1, ReleaseDate = new DateTime(1996, 6, 23), Genre = "Platformer", Platforms = "Nintendo 64", Rating = 3.5 },
+            new VideoGame { VideoGameId = 2, ReleaseDate = new DateTime(2011, 4, 18), Genre = "Platformer", Platforms = "PC", Rating = 5 }
         );
     }
 }
