@@ -1,12 +1,12 @@
 using WebAppFinal.Models;
 
-namespace WebAppFinal.Repositories 
+namespace WebAppFinal.Repositories
 {
-    
-    public class DirtBikeRepository : IDirtBikeRepository {
-        private readonly DirtBikeContext _context;
 
-        public DirtBikeRepository(DirtBikeContext context) {
+    public class DirtBikeRepository : IDirtBikeRepository {
+        private readonly ApplicationDbContext _context;
+
+        public DirtBikeRepository(ApplicationDbContext context) {
             _context = context;
         }
 
