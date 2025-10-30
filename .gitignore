@@ -83,3 +83,5 @@ PublishProfiles/
 # Environment
 .env
 .env.*
+
+.fake

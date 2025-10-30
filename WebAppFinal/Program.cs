@@ -6,10 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<DirtBikeContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DirtBikeContext")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IDirtBikeRepository, DirtBikeRepository>();
+builder.Services.AddScoped<IDistanceRunningRepository, DistanceRunningRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -23,7 +24,7 @@ app.MapControllerRoute(
 
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<DirtBikeContext>();
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     context.Database.Migrate();
 }
 
