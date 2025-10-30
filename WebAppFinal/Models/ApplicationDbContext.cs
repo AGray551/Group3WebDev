@@ -8,7 +8,7 @@ public class ApplicationDbContext : DbContext {
 
     public DbSet<DirtBike> DirtBikes { get; set; }
     public DbSet<DistanceRunning> DistanceRunnings { get; set; }
-    public DbSet<DistanceRunning> VideoGames { get; set; }
+    public DbSet<VideoGame> VideoGames { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
