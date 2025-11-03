@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IDirtBikeRepository, DirtBikeRepository>();
 builder.Services.AddScoped<IDistanceRunningRepository, DistanceRunningRepository>();
+builder.Services.AddScoped<IVideoGameRepository, VideoGameRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 
