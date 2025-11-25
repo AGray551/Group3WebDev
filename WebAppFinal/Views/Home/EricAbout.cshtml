@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "About Me";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .about-container {
+        max-width: 850px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .about-card {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border: 1px solid #333;
+        margin-bottom: 25px;
+        padding: 20px;
+    }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.25);
+            border-color: #00c6ff;
+        }
+
+    .section-title {
+        color: #00eaff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+        margin-bottom: 10px;
+    }
+
+    .section-content {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.15rem;
+        letter-spacing: 0.4px;
+        color: #d0d0d0;
+        line-height: 1.5;
+    }
+</style>
+
+<h2 class="text-center my-4" style="color:#00eaff">About Me</h2>
+
+<div class="about-container">
+
+    <!-- Name Section -->
+    <div class="about-card">
+        <div class="section-title">Name</div>
+        <div class="section-content">
+            Eric Coomer
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="about-card">
+        <div class="section-title">About Me</div>
+        <div class="section-content">
+            <p>
+            I am an IT Software Development major, I currently work in IT for a retail store doing a variety of tasks including Active Directory, making simple apps for the company
+            to use, network management (configuring cisco / arista switches), VOIP management, monitoring infrastructure with Logic Monitor / Zabbix, and
+            writing SQL views for the finance team to use in their Power BI reports.
+            </p>
+            <p>
+            I enjoy spending time outdoors, some of my hobbies include riding dirt bikes, fishing, camping and shooting guns occasionally.
+            </p>
+            <p>
+            Some of my indoor hobbies include: home labbing, I have a small home lab setup with 2 Cisco 3850 switches, 2 old optiplexs running a 2 node proxmox setup (I really 
+            need a third node lol) a Mikrotik router and a unifi access point. I mostly use the home lab to stream from my Jellyfin media server, and to tinker with Redhat Linux VM's.
+            </p>
+            <p>
+            I also enjoy playing Counter Strike 2, I've played counter strike for probably close to 10 years now, I used to play in tournaments, but I don't have time to do this
+            anymore so I just play for fun on the weekends. Another all time favorite video game of mine is World of Warcraft. I started playing WoW when I was 10 years old or so
+            and still play the game from time to time.
+            </p>
+        </div>
+    </div>
+
+</div>

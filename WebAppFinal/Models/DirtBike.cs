@@ -13,5 +13,6 @@ namespace WebAppFinal.Models
         public string Model { get; set; }
         public string Year { get; set; }
         public string Displacement { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebAppFinal.Models.DirtBike>
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .bike-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .bike-card {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border: 1px solid #333;
+        margin-bottom: 20px;
+    }
+
+        .bike-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.25);
+            border-color: #00c6ff;
+        }
+
+    .list-group-item {
+        background-color: #181818;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.15rem;
+        letter-spacing: 0.4px;
+        color: #d0d0d0;
+        line-height: 1.5;
+    }
+
+        .list-group-item strong {
+            color: #00c6ff;
+        }
+
+    .card-title {
+        color: #00eaff;
+        text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+    }
+
+</style>
+
+<h2 class="text-center my-4" style="color:#00eaff">
+    A List of All My Dirt Bikes
+</h2>
+
+<h3 class="text-center my-4" style="color:#00eaff">
+    (Eric Hobby)
+</h3>
+
+<div class="bike-list">
+    @foreach (var bike in Model)
+    {
+        <div class="card bike-card">
+
+            <div class="card-body">
+                <h5 class="card-title fw-bold">
+                    @bike.Make @bike.Model
+                </h5>
+
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item">
+                        <strong>Year:</strong> @bike.Year
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Engine:</strong> @bike.Displacement
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Description:</strong> @bike.Description
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    }
+</div>
