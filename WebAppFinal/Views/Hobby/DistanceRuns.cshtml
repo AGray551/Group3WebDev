@@ -1,0 +1,140 @@
+@model IEnumerable<WebAppFinal.Models.DistanceRunning>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        color: #ffffff;
+        min-height: 100vh;
+    }
+
+    .bengals-header {
+        background: linear-gradient(90deg, #FB4F14 0%, #000000 50%, #FB4F14 100%);
+        padding: 60px 20px;
+        text-align: center;
+        margin-bottom: 50px;
+        border-bottom: 4px solid #FB4F14;
+        box-shadow: 0 10px 30px rgba(251, 79, 20, 0.3);
+    }
+
+    .bengals-header h2 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 3.5rem;
+        color: #ffffff;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        margin: 0;
+        letter-spacing: 3px;
+    }
+
+    .bengals-header h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.3rem;
+        color: #FB4F14;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .run-list {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px 50px;
+    }
+
+    .run-card {
+        background: #000000;
+        border-left: 5px solid #FB4F14;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .run-card:hover {
+        transform: translateX(10px);
+        border-left-width: 8px;
+        box-shadow: 0 8px 25px rgba(251, 79, 20, 0.4);
+    }
+
+    .run-title {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2rem;
+        color: #FB4F14;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .run-details {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        color: #e0e0e0;
+        line-height: 1.8;
+    }
+
+    .run-details strong {
+        color: #FB4F14;
+        font-weight: 700;
+    }
+
+    .detail-item {
+        margin-bottom: 10px;
+    }
+
+    .stripe-accent {
+        height: 8px;
+        background: repeating-linear-gradient(
+            45deg,
+            #FB4F14,
+            #FB4F14 20px,
+            #000000 20px,
+            #000000 40px
+        );
+        margin: 40px auto;
+        border-radius: 4px;
+        max-width: 900px;
+    }
+</style>
+
+<div class="bengals-header">
+    <h2>Distance Running</h2>
+</div>
+
+<div class="run-list">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var run in Model)
+        {
+            <div class="run-card">
+                <div class="run-title">
+                    @run.Date.ToString("MMMM dd, yyyy")
+                </div>
+
+                <div class="run-details">
+                    <div class="detail-item">
+                        <strong>Distance:</strong> @run.Distance miles
+                    </div>
+                    <div class="detail-item">
+                        <strong>Time:</strong> @run.Time minutes
+                    </div>
+                    <div class="detail-item">
+                        <strong>Max Heart Rate:</strong> @run.MaxHeartRate bpm
+                    </div>
+                    <div class="detail-item">
+                        <strong>Pace:</strong> @Math.Round(run.Time / run.Distance, 2) min/mile
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="run-card">
+            <div class="run-details">
+                <p>No distance runs recorded yet. Check back soon!</p>
+            </div>
+        </div>
+    }
+</div>

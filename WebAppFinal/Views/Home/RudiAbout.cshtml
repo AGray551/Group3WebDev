@@ -1,0 +1,213 @@
+@{
+    ViewData["Title"] = "About Me - Rudi";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        color: #ffffff;
+        min-height: 100vh;
+    }
+
+    .bengals-header {
+        background: linear-gradient(90deg, #FB4F14 0%, #000000 50%, #FB4F14 100%);
+        padding: 60px 20px;
+        text-align: center;
+        margin-bottom: 50px;
+        border-bottom: 4px solid #FB4F14;
+        box-shadow: 0 10px 30px rgba(251, 79, 20, 0.3);
+    }
+
+    .bengals-header h1 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 4rem;
+        color: #ffffff;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        margin: 0;
+        letter-spacing: 3px;
+    }
+
+    .bengals-header .subtitle {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.3rem;
+        color: #FB4F14;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .content-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px 50px;
+    }
+
+    .profile-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 30px;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+        border: 3px solid #FB4F14;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(251, 79, 20, 0.2);
+    }
+
+    .info-card {
+        background: #000000;
+        border-left: 5px solid #FB4F14;
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-card:hover {
+        transform: translateX(10px);
+        border-left-width: 8px;
+        box-shadow: 0 8px 25px rgba(251, 79, 20, 0.4);
+    }
+
+    .info-label {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 1.8rem;
+        color: #FB4F14;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .info-value {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.1rem;
+        color: #e0e0e0;
+        line-height: 1.8;
+    }
+
+    .stripe-accent {
+        height: 8px;
+        background: repeating-linear-gradient(
+            45deg,
+            #FB4F14,
+            #FB4F14 20px,
+            #000000 20px,
+            #000000 40px
+        );
+        margin: 40px 0;
+        border-radius: 4px;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .stat-box {
+        background: #FB4F14;
+        color: #000000;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+        box-shadow: 0 5px 15px rgba(251, 79, 20, 0.3);
+    }
+
+    .stat-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(251, 79, 20, 0.5);
+    }
+
+    .profile-img-placeholder {
+        background: linear-gradient(135deg, #FB4F14 0%, #ff6b35 100%);
+        height: 300px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 3rem;
+        color: #000000;
+        border: 4px solid #000000;
+        box-shadow: 0 10px 30px rgba(251, 79, 20, 0.4);
+    }
+
+    .profile-details h2 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2.5rem;
+        color: #FB4F14;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+
+    .profile-details p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #e0e0e0;
+    }
+
+    .hobby-link {
+        color: #FB4F14;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+    }
+
+    .hobby-link:hover {
+        color: #ff6b35;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="bengals-header">
+    <h1>Rudi Vogel</h1>
+</div>
+
+<div class="content-wrapper">
+    <div class="info-card">
+        <div class="info-label">About Me</div>
+        <div class="info-value">
+            <p>
+                My name is Rudi and I am Senior in the IT Software Development and Data Technologies tracks here at UC.
+                Im from the Cincinnnati area and a huge fan of all Cincinnati sports teams.
+                Im also a veteran, husband and father.
+                I enjoy motorcycles, reading, building out my homelab and spending time with my family.
+            </p>
+            <p>
+                My goal is to continue to grow and refine my skills in development and grow into more senior development roles.
+            </p>
+        </div>
+    </div>
+
+    <div class="stripe-accent"></div>
+
+    <div class="info-card">
+        <div class="info-label">Hobbies</div>
+        <div class="info-value">
+            <p>
+                One of my hobbies is <a href="@Url.Action("DistanceRuns", "Hobby")" class="hobby-link">Distance Running</a>. I have ran 4 marathons and numerous half marathons.
+                
+            </p>
+        </div>
+    </div>
+
+    <div class="stripe-accent"></div>
+
+    <div class="info-card">
+        <div class="info-label">Work & Experience</div>
+        <div class="info-value">
+            <p>
+                I'm currently working as a Software Engineer Contractor for a local company, previously I spent 2 years co-op'ng at a Data Companyy.
+                I'm set to graduate after next semester and plan to continue working in Software Development.
+            </p>
+        </div>
+    </div>
+</div>

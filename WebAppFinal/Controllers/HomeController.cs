@@ -13,4 +13,8 @@ public class HomeController : Controller {
     public IActionResult EricAbout() {
         return View("EricAbout");
     }
+
+    public IActionResult RudiAbout() {
+        return View("RudiAbout");
+    }
 }
