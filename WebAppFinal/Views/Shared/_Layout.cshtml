@@ -23,16 +23,28 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Hobby" asp-action="DirtBikes">Dirt Bikes</a>
+
+                    <!-- Users Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Users
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="usersDropdown">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="EricAbout">Eric</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="RudiAbout">Rudi</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EricAbout">Eric - About Me</a>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Hobby" asp-action="DistanceRuns">Distance Running</a>
-                    </li>
-                                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Hobby" asp-action="VideoGames">Video Games</a>
+
+                    <!-- Hobbies Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="hobbiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hobbies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="hobbiesDropdown">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Hobby" asp-action="DirtBikes">Dirt Bikes</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Hobby" asp-action="DistanceRuns">Distance Running</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Hobby" asp-action="VideoGames">Video Games</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
