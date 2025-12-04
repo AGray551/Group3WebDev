@@ -1,8 +1,65 @@
-﻿@{
-    ViewData["Title"] = "Video Games";
-}
+﻿@model IEnumerable<WebAppFinal.Models.VideoGame>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Video Games</h1>
+<style>
+    body {
+        background-color: #0b0b0b;
+        color: #c8ffc8;
+        font-family: 'Rajdhani', sans-serif;
+    }
 
+    .green-card {
+        background-color: #003b1f;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #006b3a;
+        box-shadow: 0 0 12px rgba(0, 255, 85, 0.2);
+    }
+
+    .videogame-title {
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: #00ff55;
+        text-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
+    }
+
+    .videogame-details .detail-item {
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<div class="green-card">
+    <h2>My Favorite Video Games</h2>
+</div>
+
+<div class="videogame-list">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var game in Model)
+        {
+            <div class="green-card">
+                <div class="videogame-title">@game.Title (@game.Genre)</div>
+                <div class="videogame-details">
+                    <div class="detail-item">
+                        <strong>Release Date:</strong> @game.ReleaseDate.ToString("MMMM dd, yyyy")
+                    </div>
+                    <div class="detail-item">
+                        <strong>Platforms:</strong> @game.Platforms
+                    </div>
+                    <div class="detail-item">
+                        <strong>Online Rating:</strong> @($"{game.Rating}/5")
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        <div class="green-card">
+            <p>No video games recorded yet.</p>
+        </div>
+    }
 </div>

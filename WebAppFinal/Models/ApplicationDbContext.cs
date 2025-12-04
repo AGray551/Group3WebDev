@@ -43,8 +43,11 @@ public class ApplicationDbContext : DbContext {
         );
 
         modelBuilder.Entity<VideoGame>().HasData(
-            new VideoGame { VideoGameId = 1, ReleaseDate = new DateTime(1996, 6, 23), Genre = "Platformer", Platforms = "Nintendo 64", Rating = 3.5 },
-            new VideoGame { VideoGameId = 2, ReleaseDate = new DateTime(2011, 4, 18), Genre = "Platformer", Platforms = "PC", Rating = 5 }
+            new VideoGame { VideoGameId = 1, Title = "Mario 64", ReleaseDate = new DateTime(1996, 6, 23), Genre = "Platformer", Platforms = "Nintendo 64", Rating = 3.5 },
+            new VideoGame { VideoGameId = 2, Title = "Devil May Cry 3", ReleaseDate = new DateTime(2005, 2, 17), Genre = "Action", Platforms = "PS2, PC", Rating = 4.5 },
+            new VideoGame { VideoGameId = 3, Title = "Portal 2", ReleaseDate = new DateTime(2011, 4, 19), Genre = "Puzzle", Platforms = "PC, PS3, Xbox 360", Rating = 5 },
+            new VideoGame { VideoGameId = 4, Title = "Disco Elysium", ReleaseDate = new DateTime(2019, 10, 15), Genre = "RPG", Platforms = "PC, PS4, PS5, Xbox One", Rating = 4.8 }
         );
+
     }
 }

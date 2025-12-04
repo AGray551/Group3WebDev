@@ -8,6 +8,7 @@ namespace WebAppFinal.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VideoGameId { get; set; }
+        public string? Title { get; set; }
 
         public DateTime ReleaseDate { get; set; }
 

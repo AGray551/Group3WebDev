@@ -17,4 +17,9 @@ public class HomeController : Controller {
     public IActionResult RudiAbout() {
         return View("RudiAbout");
     }
+
+    public IActionResult GrayAbout()
+    {
+        return View("GrayAbout");
+    }
 }
